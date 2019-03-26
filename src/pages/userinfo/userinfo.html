@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="secondary">
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>Eu: {{ user.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item><ion-icon name="contact" start></ion-icon> {{ user.name }}</ion-item>
+    <ion-item><ion-icon name="mail" start></ion-icon> {{ user.email }}</ion-item>
+    <ion-item><ion-icon name="pricetags" start></ion-icon> {{ users.zoneuser }}</ion-item>
+    <ion-item><ion-icon name="school" start></ion-icon> {{ users.courseuser }}</ion-item>
+    <ion-item><ion-icon name="home" start></ion-icon> {{ users.unityCampus }}</ion-item>
+    <button ion-item (click)="openMyProfile()" icon-start><ion-icon name="person" start></ion-icon> Cadastrar perfil</button>
+    <!-- <button ion-item (click)="openNotices()">Avisos</button>
+    <button ion-item (click)="signOut()">Sair</button> -->
+    <ion-item *ngFor="let projectHelp of projectsHelp | async">
+        <ion-card>
+            <ion-card-title>
+                <h2 text-center>{{projectHelp.nameproject}}</h2>
+              </ion-card-title>
+              <p padding-left><span><b>Área :</b> </span>{{projectHelp.zoneproject}}</p>
+              <p padding-left><span><b>Curso:</b> </span>{{projectHelp.courseproject}}</p>
+              <p padding-left><span><b>Turma: </b></span>{{projectHelp.classeproject}}</p>
+            <ion-card-header color="danger" class="text-bold">Ajuda:</ion-card-header>
+            <ion-card-content>
+              <p text-wrap [innerHTML]="projectHelp.description"></p>
+            </ion-card-content>
+        </ion-card>
+    </ion-item>
+
+    <ion-item *ngFor="let projectCooperate of projectsCooperate | async">
+        <ion-card>
+            <ion-card-title>
+                <h2 text-center>{{projectCooperate.nameproject}}</h2>
+              </ion-card-title>
+              <p padding-left><span><b>Área :</b> </span>{{projectCooperate.zoneproject}}</p>
+              <p padding-left><span><b>Curso:</b> </span>{{projectCooperate.courseproject}}</p>
+              <p padding-left><span><b>Turma: </b></span>{{projectCooperate.classeproject}}</p>
+            <ion-card-header color="edit" class="text-bold">Colaboração:</ion-card-header>
+            <ion-card-content>
+              <p text-wrap [innerHTML]="projectCooperate.description"></p>
+            </ion-card-content>
+        </ion-card>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar color="secondary">
+        <ion-buttons end>
+            <img src="../assets/img/logo_branco.png">
+        </ion-buttons>
+      <ion-title>App Senac Campinas</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <!-- <ion-avatar item-start>
+      <img src="img/avatar-cher.png">
+  </ion-avatar> -->
+  <ion-content>
+    <ion-list>
+        <ion-item (click)="openAbout()" ><ion-icon name="information-circle" item-start></ion-icon> Sobre o App</ion-item>
+        <ion-item  ><ion-icon name="color-wand" item-start></ion-icon> Tutorial</ion-item>
+        <ion-item [hidden]="!user.name" (click)="openPerfil()"><ion-icon name="person" item-start></ion-icon> Meu perfil: {{ user.name }}</ion-item>
+        <ion-item [hidden]="!user.name" (click)="openValidadeStudents()"><ion-icon name="thumbs-up" item-start></ion-icon> Validar Usuários</ion-item>
+        <ion-item [hidden]="user.name" (click)="navCtrl.push('SigninPage')"><ion-icon name="log-in" item-start></ion-icon> Entrar ou Criar Conta</ion-item>
+        <ion-item [hidden]="!user.name" (click)="openSchedule()"><ion-icon name="calendar" item-start></ion-icon>Agenda</ion-item>
+        <ion-item [hidden]="!user.name" (click)="openNotices()"><ion-icon name="megaphone" item-start></ion-icon>Avisos</ion-item>
+        <ion-item [hidden]="!user.name" (click)="signOut()"><ion-icon name="log-out" item-start></ion-icon> Sair</ion-item>
+        </ion-list>
+  </ion-content>

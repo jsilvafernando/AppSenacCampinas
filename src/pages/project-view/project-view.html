@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <img src="assets/img/logo_branco.png">
+    </ion-buttons>
+    <ion-title>Projeto:{{project.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-start clear small (click)="helpProject(project)">
+              <ion-icon name="help" color="danger"></ion-icon>
+              <div>Pedir Ajuda</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-start clear small (click)="cooperateProject(project)">
+              <ion-icon name="bulb" color="edit"></ion-icon>
+              <div>Colaborar</div>
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-card-header>
+            <ion-rating [Reading]="false" [valor]="project.ratingvalue" (ionClick)="numberstars($event)"></ion-rating>
+        </ion-card-header>
+    </ion-card>
+
+  <ion-card>
+    <ion-card-title>
+      <h2 text-wrap text-center>{{project.name}}</h2>
+    </ion-card-title>
+    <ion-card-header>
+      Descrição do projeto:
+    </ion-card-header>
+    <ion-card-content>
+      <p text-wrap [innerHTML]="project.description"></p>
+
+      <ion-row><span><b>Área :</b> </span>{{project.zone}}</ion-row>
+      <ion-row><span><b>Curso:</b> </span>{{project.course}}</ion-row>
+      <ion-row><span><b>Turma: </b></span>{{project.classe}}</ion-row>
+      <ion-item no-lines>
+        <ion-icon name="calendar" item-start large></ion-icon>
+        <p>{{project.monthstartyear }}</p>
+        <p>{{project.monthfinishyear }}</p>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-badge color="primary" item-end>{{project.rankingstar5}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-badge color="primary" item-end>{{project.rankingstar4}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-badge color="primary" item-end>{{project.rankingstar3}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-badge color="primary" item-end>{{project.rankingstar2}}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="star" color="secondary" class="star"></ion-icon>
+          <ion-badge color="primary" item-end>{{project.rankingstar1}}</ion-badge>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      Grupo de Alunos do Projeto
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item *ngFor="let projectuser of userprojects | async">
+          <ion-icon color="edit" name="thumbs-up" item-start (click)="viewUserPerfil(projectuser)"></ion-icon>
+          <h2>{{ projectuser.username }}</h2>
+          <h3>{{ projectuser.useremail }}</h3>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

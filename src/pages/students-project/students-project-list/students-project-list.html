@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-navbar color="secondary">
+        <ion-buttons end>
+            <img src="assets/img/logo_branco.png">
+        </ion-buttons>
+      <ion-title>Adicionar Alunos ao Projeto</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+  <ion-content padding>
+    <!-- <ion-item>{{}}</ion-item> -->
+    <ion-card>
+      <ion-item>
+          <ion-icon name="funnel" item-start></ion-icon>
+          <ion-icon color="secondary" name="add-circle" item-end></ion-icon>
+          Filtrar para Adicionar
+      </ion-item>
+    </ion-card>
+    <ion-item>
+      <ion-label>Áreas</ion-label>
+      <ion-select [(ngModel)]="zone" (ionChange)="getCourse()">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let zone of zones | async" [value]="zone.key">{{ zone.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cursos</ion-label>
+      <ion-select [(ngModel)]="course" (ionChange)="getUsers()">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let course of courses | async" [value]="course.key">{{ course.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-card>
+        <ion-card-header>
+          Projeto: {{projectname}}
+        </ion-card-header>
+      </ion-card>
+      <ion-card>
+      <ion-card-header>
+          <ion-icon color="edit" name="thumbs-up" item-start></ion-icon>
+          Usuários Alocados no Projeto:
+      </ion-card-header>
+    </ion-card>
+    <ion-list no-lines>
+      <ion-item *ngFor="let userproject of usersprojects | async">
+        <ion-item>
+          <ion-icon color="edit" name="thumbs-up" item-start></ion-icon>
+          <ion-icon color="danger" name="close-circle" item-end (click)="RemoveUserProject(userproject)" ></ion-icon>
+          <h2>{{userproject.username}}</h2>
+          <!-- <h6>{{userproject.userkey}}</h6> -->
+        </ion-item>
+      </ion-item>
+    </ion-list>
+    <ion-card>
+      <ion-card-header>
+        <ion-icon color="danger" name="thumbs-down" item-start></ion-icon>
+        Usuários não Alocados:
+      </ion-card-header>
+    </ion-card>
+
+    <ion-list no-lines>
+      <ion-item *ngFor="let user of users | async">
+          <ion-item>
+              <ion-icon color="danger" name="thumbs-down" item-start></ion-icon>
+              <ion-icon color="secondary" name="add-circle" (click)="addUserProject(user)" item-end></ion-icon>
+            <h2>{{ user.name}}</h2>
+            <h3>{{ user.email }}</h3>
+            <h4>{{user.classeuser}}</h4>
+            <!-- <h6>{{user.key}}</h6> -->
+          </ion-item>
+      </ion-item>
+    </ion-list>
+  </ion-content>

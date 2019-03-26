@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+        <ion-item>{{ user.name }}</ion-item>
+  </ion-list>
+  <form [formGroup]="form">
+
+      <ion-label stacked>Você está pedindo Ajuda para este grupo?</ion-label>
+      <ion-item>Projeto: {{ projectname }}</ion-item>
+      <ion-label stacked>Descreva abaixo seu pedido de Ajuda!</ion-label>
+    <ion-item>
+      <ion-label stacked>Ajuda:</ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.description.valid && (form.controls.description.dirty || form.controls.description.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.description.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+    </div>
+  </form>
+</ion-content>

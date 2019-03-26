@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-buttons end>
+      <img src="assets/img/logo_branco.png">
+    </ion-buttons>
+    <ion-title>{{userprofile.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-title>
+        <h2 text-center color="primary">Perfil</h2>
+      </ion-card-title>
+      <ion-card-content>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Nome:</h2>
+          {{userprofile.name}}
+        </ion-item>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Área:</h2>
+            {{userprofile.zoneuser}}
+        </ion-item>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Curso:</h2>
+            {{userprofile.courseuser}}
+        </ion-item>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Turma:</h2>
+            {{userprofile.classeuser}}
+        </ion-item>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Experiência:</h2>
+            {{userprofile.experiencia}}
+        </ion-item>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Formação:</h2>
+            {{userprofile.formacao}}
+        </ion-item>
+        <ion-item text-wrap text-justify>
+          <h2 color="primary">Interesses:</h2>
+            {{userprofile.interesses}}
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

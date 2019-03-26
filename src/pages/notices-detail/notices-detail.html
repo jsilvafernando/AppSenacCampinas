@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+    </ion-buttons>
+    <ion-title>{{selectedItem.titlenotice}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="selectedItem" class="selection">
+      <p>{{selectedItem.datanotice| date:'dd/MM/yyyy'}}</p>
+      <div class="textwp" [innerHTML]="selectedItem.description"></div>
+   </div>
+
+</ion-content>

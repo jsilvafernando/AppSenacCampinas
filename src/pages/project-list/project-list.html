@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>Projetos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Áreas</ion-label>
+      <ion-select [(ngModel)]="zone" (ionChange)="getCourses()">
+      <!-- <ion-select interface="popover"> -->
+        <ion-option value="" [selected]="true">Todas</ion-option>
+        <ion-option *ngFor="let zone of zones | async" [value]="zone.key">{{ zone.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cursos</ion-label>
+      <ion-select [(ngModel)]="course" (ionChange)="getProjects()">
+        <ion-option value="" [selected]="true">Escolher</ion-option>
+        <ion-option *ngFor="let course of items | async" [value]="course.key">{{ course.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngFor="let project of projects | async">
+
+      <ion-list no-lines (click)="listProject(project)">
+        <p><span><b>Área</b> </span>{{project.zone}}</p>
+        <ion-avatar class="align-left">
+            <img src="assets/img/logo_36_icone.png">
+        </ion-avatar>
+        <h2 text-wrap [innerHTML]="project.name"></h2>
+        <!-- <p text-wrap [innerHTML]="project.description"></p> -->
+        <p>{{project.description}}"></p>
+        <ion-item no-lines>
+          <p><span><b>Curso</b> </span>{{project.course}}</p>
+          <p><span><b>Turma </b></span>{{project.classe}}</p>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-icon name="calendar" item-start large></ion-icon>
+          <p>{{project.monthstartyear }}</p>
+          <p>{{project.monthfinishyear }}</p>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+  </ion-list>
+
+
+</ion-content>

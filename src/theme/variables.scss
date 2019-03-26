@@ -34,11 +34,19 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:    #004A8D,
+  secondary:  #F7941D,
+  danger:     #E63946,
+  light:      #FDC180,
+  dark:       #1D3557,
+  edit:      #007531
+  // primary:    #1D3557,
+  // secondary:  #457B9D,
+  // danger:     #E63946,
+  // light:      #F1FAEE,
+  // dark:       #0F0F0F,
+  // price:      #007531
+
 );
 
 
@@ -86,3 +94,14 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+.star, .comment {
+  font-size: 30px;
+}
+.text-bold{
+  font-weight: bold;
+}
+.align-left{
+  float:left;
+  padding:5px;
+}

@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="secondary">
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>Agenda</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+  <!--  -->
+  <ion-content padding>
+    <ion-list>
+        <ion-item  ion-item (click)="schedulesView($event, schedule)" *ngFor="let schedule of schedules | async">
+          <ion-item *ngIf="(schedule.zonekey == UzoneKey || schedule.courseKey == UcourseKey || schedule.classeKey == UclasseKey ) || (schedule.zonekey == '' || schedule.courseKey == '' || schedule.classeKey == '' )">
+            <p>{{schedule.dataschedule | date:'dd/MM/yyyy'}}</p>
+            <ion-avatar class="align-left">
+              <img src="assets/img/iconSenac_44x41.png">
+            </ion-avatar>
+            <!-- <h2>{{schedule.titleschedule}}</h2> -->
+            <h2 text-wrap [innerHTML]="schedule.titleschedule"></h2>
+            <p [innerHTML]="schedule.description"></p>
+          </ion-item>
+
+        </ion-item>
+    </ion-list>
+  </ion-content>

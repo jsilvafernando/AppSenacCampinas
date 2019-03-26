@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="../assets/img/logo_branco.png">
+      </ion-buttons>
+      <ion-title>Criar conta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touched)" color="danger">
+      <div [hidden]="!form.controls.name.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+    <!-- interface="popover" -->
+    <ion-item>
+      <ion-label>Áreas</ion-label>
+      <ion-select formControlName="zone" (ionChange)="getZones()">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let zone of zones | async" [value]="zone.key">{{ zone.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cursos</ion-label>
+      <ion-select formControlName="course" (ionChange)="getCourses()">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let course of courses | async" [value]="course.key">{{ course.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Turma</ion-label>
+        <ion-select formControlName="classe" (ionChange)="getClasses()">
+          <ion-option value="" [selected]="true">Selecione</ion-option>
+          <ion-option *ngFor="let classe of classes | async" [value]="classe.key">{{ classe.name }}</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>E-mail</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.email.valid && (form.controls.email.dirty || form.controls.email.touched)" color="danger">
+      <div [hidden]="!form.controls.email.errors.required">
+        O campo é obrigatório
+      </div>
+      <div [hidden]="!form.controls.email.errors.email">
+        O e-mail é invalido
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Senha</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.password.valid && (form.controls.password.dirty || form.controls.password.touched)" color="danger">
+      <div [hidden]="!form.controls.password.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Unidade</ion-label>
+      <ion-select formControlName="unityCampus" interface="popover">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let unidade of unidades | async" [value]="unidade.name">{{ unidade.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.unityCampus.valid && (form.controls.unityCampus.dirty || form.controls.unityCampus.touched)" color="danger">
+      <div [hidden]="!form.controls.unityCampus.errors.required">
+        O campo é obrigatório
+      </div>
+      <div [hidden]="!form.controls.unityCampus.errors.unityCampus">
+        A unidade é inválida
+      </div>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Política de Privacidade</ion-label>
+        <button ion-button outline item-end icon-start (click)="openPrivacyPolicy()">
+            <ion-icon name="lock"></ion-icon>
+            leia-me
+        </button>
+        <ion-checkbox formControlName="privacypolicy" color="danger"></ion-checkbox>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.privacypolicy.valid && (form.controls.privacypolicy.dirty || form.controls.privacypolicy.touched)" color="danger">
+        <div [hidden]="!form.controls.privacypolicy.errors.required">
+          O campo é obrigatório
+        </div>
+    </ion-item>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Criar conta</button>
+    </div>
+  </form>
+</ion-content>

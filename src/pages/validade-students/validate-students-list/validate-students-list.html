@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="secondary">
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>Validar Alunos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Áreas <ion-badge item-start>{{ zonesTotal }}</ion-badge></ion-label>
+      <ion-select [(ngModel)]="zone" (ionChange)="getCourse()">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let zone of zones | async" [value]="zone.key">{{ zone.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cursos <ion-badge item-start>{{ courseTotal }}</ion-badge></ion-label>
+      <ion-select [(ngModel)]="course" (ionChange)="getUsers()">
+        <ion-option value="" [selected]="true">Selecione</ion-option>
+        <ion-option *ngFor="let course of courses | async" [value]="course.key">{{ course.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines *ngFor="let user of users | async">
+        <ion-item [hidden]="user.verified == true">
+          <ion-icon name="lock" item-start color="danger" (click)="editValidateUser(user)"></ion-icon>
+          <h2>{{ user.name}}</h2>
+          <h3>{{ user.email }}</h3>
+          <h4>{{user.classeuser}}</h4>
+        </ion-item>
+        <ion-item [hidden]="user.verified == false">
+            <ion-icon name="unlock" item-start color="edit" (click)="editValidateUser(user)"></ion-icon>
+            <h2>{{ user.name}}</h2>
+            <h3>{{ user.email }}</h3>
+            <h4>{{user.classeuser}}</h4>
+        </ion-item>
+      </ion-item>
+  </ion-list>
+</ion-content>

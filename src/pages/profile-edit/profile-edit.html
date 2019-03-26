@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+        <ion-item>{{ user.name }}</ion-item>
+        <ion-item>{{ user.email }}</ion-item>
+  </ion-list>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label stacked>Formação</ion-label>
+      <ion-textarea type="text" formControlName="formacao"></ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.formacao.valid && (form.controls.formacao.dirty || form.controls.formacao.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.formacao.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Experiência</ion-label>
+      <ion-textarea type="text" formControlName="experiencia"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Interesse</ion-label>
+      <ion-textarea type="text" formControlName="interesses"></ion-textarea>
+    </ion-item>
+
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+    </div>
+  </form>
+</ion-content>

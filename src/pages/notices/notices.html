@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+        <img src="assets/img/logo_branco.png">
+    </ion-buttons>
+  <ion-title>Avisos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ion-item  ion-item (click)="noticesView($event, notice)" *ngFor="let notice of notices | async">
+
+        <p>{{notice.datanotice | date:'dd/MM/yyyy'}}</p>
+          <ion-avatar class="align-left">
+            <img src="assets/img/iconSenac_44x41.png">
+          </ion-avatar>
+          <!-- <h2>{{notice.titlenotice}}</h2> -->
+          <h2 text-wrap [innerHTML]="notice.titlenotice"></h2>
+          <p [innerHTML]="notice.description"></p>
+
+      </ion-item>
+  </ion-list>
+</ion-content>

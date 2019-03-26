@@ -14,3 +14,10 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.getstart {
+    background-image: url('../assets/img/splashSenac-480x800.png');
+    // -webkit-background-image: url('../assets/imgs/ipicamp-splash-1024x1024.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+          <img src="assets/img/logo_branco.png">
+      </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>{{ user.name }}</ion-item>
+        <ion-item>{{ user.email }}</ion-item>
+  </ion-list>
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label stacked>Nome do Projeto</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touched)"
+      color="danger">
+      <div [hidden]="!form.controls.name.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Descrição do Projeto</ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.description.valid && (form.controls.description.dirty || form.controls.description.touched)" color="danger">
+      <div [hidden]="!form.controls.description.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Ano/Mês de ínicio</ion-label>
+      <ion-datetime displayFormat="YYYY/MM" formControlName="monthstartyear" min="2017" max="2099"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Ano/Mês de Previsão de Término</ion-label>
+      <ion-datetime displayFormat="YYYY/MM" formControlName="monthfinishyear" min="2017" max="2099"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.monthfinishyear.valid && (form.controls.monthfinishyear.dirty || form.controls.monthfinishyear.touched)" color="danger">
+      <div [hidden]="!form.controls.monthfinishyear.errors.required">
+        O campo é obrigatório
+      </div>
+    </ion-item>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="onSubmit()">Salvar</button>
+    </div>
+    <ion-fab right top>
+        <button ion-fab color="secondary" (click)="newAddUsers()" *ngIf="addUser"><ion-icon name="person-add"></ion-icon></button>
+    </ion-fab>
+
+  </form>
+</ion-content>
