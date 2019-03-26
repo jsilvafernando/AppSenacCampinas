@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.senac.sp.AppSenacCampinas" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="br.senac.sp.AppSenacCampinas" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Senac CAM</name>
     <description>App Senac Campinas - Projeto PonteS - Compartilhar Projeto Integrador de todas Áreas</description>
     <author email="jsfernando@gmail.com" href="http://jsfernando.com.br/">Senac Team</author>
