@@ -36,10 +36,10 @@ export class SigninPage {
     private oneSignal: OneSignal,
     private toast: ToastController) {
 
-      // this.oneSignal.getIds().then(ids => {
-      //   this.player_id = JSON.stringify(ids.userId);
-      //   console.log(this.player_id);
-      // })
+      this.oneSignal.getIds().then(ids => {
+        this.player_id = JSON.stringify(ids.userId);
+        console.log(this.player_id);
+      })
 
     this.createForm();
     this.zones = this.zonesProvider.getAll();
@@ -66,15 +66,15 @@ export class SigninPage {
           if (user.emailVerified) {
             if (this.emailsenac[1] == 'sp.senac.br'){
                 // OneSignal ============================
-                // this.oneSignal.deleteTag("zone");
-                // this.oneSignal.deleteTag("course");
-                // this.oneSignal.deleteTag("classe");
-                // this.oneSignal.deleteTag("senac");
-                // this.oneSignal.sendTag("senac",this.emailsenac[1]);
-                // this.oneSignal.sendTag("zone",user.zoneuser);
-                // this.oneSignal.sendTag("course",user.courseuser);
-                // // this.oneSignal.sendTag("classe", user.classeuser);
-                // this.db.object(this.PATH + user.userkey).update({ idOneSignal: this.player_id });
+                this.oneSignal.deleteTag("zone");
+                this.oneSignal.deleteTag("course");
+                this.oneSignal.deleteTag("classe");
+                this.oneSignal.deleteTag("senac");
+                this.oneSignal.sendTag("senac",this.emailsenac[1]);
+                this.oneSignal.sendTag("zone",user.zoneuser);
+                this.oneSignal.sendTag("course",user.courseuser);
+                // this.oneSignal.sendTag("classe", user.classeuser);
+                this.db.object(this.PATH + user.userkey).update({ idOneSignal: this.player_id });
                 // ======================================
                 this.navCtrl.setRoot('TabsPage');
             } else {

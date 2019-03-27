@@ -119,6 +119,20 @@ export class MyprojectProvider {
       });
   }
 
+  getAllProjectsZones(zoneKey:string){
+    return this.db.list(this.PATH, ref =>{
+      if (zoneKey) {
+        return ref.orderByChild('zonekey').equalTo(zoneKey)
+      } else {
+        return ref.orderByChild('name')
+      }
+    })
+      .snapshotChanges()
+      .map(changes => {
+        return changes.map(m => ({ key: m.key, ...m.payload.val() }))
+      });
+  }
+
   public save(item: any, key: string) {
     // o método update retorna uma promisse e o método push retorna um outro tipo de objeto
     // retorna uma promessa, pra saber quando a função foi executada com sucesso

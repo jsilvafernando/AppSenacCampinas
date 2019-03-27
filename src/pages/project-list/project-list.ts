@@ -35,6 +35,11 @@ export class ProjectListPage {
   }
 
   getCourses() {
+    // seleciona os projetos pelo primeiro ion-select de Áreas
+    // popula pelo this.projects a page.html
+    this.projects = this.myprojectProvider.getAllProjectsZones(this.zone);
+
+    // preenche o ion-select de Cursos com a escolha da Área
     this.items = this.courseProvider.getAll(this.zone);
   }
 
