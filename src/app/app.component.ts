@@ -39,7 +39,7 @@ export class MyApp {
 
   configurePushNotification(){
 
-    this.oneSignal.startInit('e7506193-e293-4842-bcac-d0dcdb253956','940230609320');
+    this.oneSignal.startInit('xxxxxxxx-zzzz-wwww-yyyy-d0dcdb253956','9xzzxyyxwwx0'); // Coloque aqui sua chave do projeto Firebase e do OneSignal
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
 
       // tratamento da push notification
