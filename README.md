@@ -6,10 +6,10 @@ Nele é possível conhecer o que os alunos estão desenvolvendo, podendo colabor
 Como repositório, poderá servir de estímulo e incentivo na elaboração de novos projetos.
 
 # Desenvolvido em:
-Plataforma Mobile> ``Ionic`` versão 3.20
+Plataforma Mobile> ``Ionic`` versão 3.20 -
 Banco de Dados> ``Firebase Real Time Database`` da Google
 
-Plataforma Web> ``Angular`` versão 5.1.0
+Plataforma Web> ``Angular`` versão 5.1.0 - 
 Banco de Dados> o mesmo Firebase do App Mobile
 
 # Para rodar:
