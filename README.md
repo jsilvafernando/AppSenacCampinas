@@ -1,4 +1,5 @@
-# AppSenacCampinas
+# App Senac Campinas
+## Ideia Viva
 
 Aplicativo Ideia Viva, tem como objetivo a interação da comunidade escolar Senac Campinas com os projetos integradores dos cursos.
 Nele é possível conhecer o que os alunos estão desenvolvendo, podendo colaborar oferecendo ajuda e/ou interagir pedindo auxílio.
@@ -38,12 +39,12 @@ export const config = {
   
 ```
 
-# Projeto Web Admin
+# Projeto Web Admin 
 Plataforma Web> ``Angular`` versão 5.1.0
 
 Banco de Dados> o mesmo ``Firebase`` do App Mobile
 
-Nome do Repositório aqui no Github - AppSenac
+Repositório Github - `https://github.com/jsilvafernando/AppSenac`
 
 # Executar
 Execute o projeto Mobile com o comando ``ionic serve``
