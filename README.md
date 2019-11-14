@@ -18,6 +18,7 @@ Efetuar o comando git clone para clonar o repositório e depois executar o coman
 
 # Arquivo necessário para rodar
 Dentro da pasta src do projeto colocar o arquivo firebase-config.ts com a configuração do seu projeto no Firebase.
+`
 export const config = {
   apiKey: "",
   authDomain: "",
@@ -26,10 +27,11 @@ export const config = {
   storageBucket: "",
   messagingSenderId: ""
 }
-
+`
 # Projeto Web Admin
 Plataforma Web> Angular versão 5.1.0
 Banco de Dados> o mesmo Firebase do App Mobile
+
 Nome do Repositório aqui no Github - AppSenac
 
 # Executar
