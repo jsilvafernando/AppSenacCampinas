@@ -5,19 +5,19 @@ Nele é possível conhecer o que os alunos estão desenvolvendo, podendo colabor
 Como repositório, poderá servir de estímulo e incentivo na elaboração de novos projetos.
 
 # Desenvolvido em:
-Plataforma Mobile> Ionic versão 3.20
-Banco de Dados> Firebase Real Time Database da Google
+Plataforma Mobile> ``Ionic`` versão 3.20
+Banco de Dados> ``Firebase Real Time Database`` da Google
 
-Plataforma Web> Angular versão 5.1.0
+Plataforma Web> ``Angular`` versão 5.1.0
 Banco de Dados> o mesmo Firebase do App Mobile
 
 # Para rodar:
-Efetuar o comando git clone para clonar o repositório e depois executar o comando npm install para criar as dependencias (pasta node_modules).
+Efetuar o comando ``git clone`` para clonar o repositório e depois executar o comando ``npm install`` para criar as dependencias (pasta ``node_modules``).
 É necessário tbém criar um projeto gratuito com um login gmail no Firebase Console:
-(https://console.firebase.google.com)
+``(https://console.firebase.google.com)``
 
 # Arquivo necessário para rodar
-Dentro da pasta src do projeto colocar o arquivo firebase-config.ts com a configuração do seu projeto no Firebase.
+Dentro da pasta src do projeto colocar o arquivo ``firebase-config.ts`` com a configuração do seu projeto no Firebase.
 
 ```
 export const config = {
@@ -39,8 +39,9 @@ export const config = {
 ```
 
 # Projeto Web Admin
-Plataforma Web> Angular versão 5.1.0
-Banco de Dados> o mesmo Firebase do App Mobile
+Plataforma Web> ``Angular`` versão 5.1.0
+
+Banco de Dados> o mesmo ``Firebase`` do App Mobile
 
 Nome do Repositório aqui no Github - AppSenac
 
